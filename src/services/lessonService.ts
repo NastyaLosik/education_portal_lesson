@@ -11,11 +11,11 @@ const createLesson = async (lessonData: Lesson) => {
 };
 
 const getAllLessons = async () => {
-  return await LessonModel.find();
+  return await LessonModel.find().populate("course", "title");
 };
 
 const getLessonById = async (id: string) => {
-  const lesson = await LessonModel.findById(id);
+  const lesson = await LessonModel.findById(id).populate("course", "title");
   if (!lesson) {
     throw new Error("Урок не найден");
   }

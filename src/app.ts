@@ -6,6 +6,7 @@ import { authRoutes } from "./routes/authRoutes";
 import { courseRoutes } from "./routes/courseRoutes";
 import { favoriteRoutes } from "./routes/favoriteRoutes";
 import { lessonRoutes } from "./routes/lessonRoutes";
+import { commentRoutes } from "./routes/commentRoutes";
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -19,6 +20,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api", courseRoutes);
 app.use("/api/favorites", favoriteRoutes);
 app.use("/api/lesson", lessonRoutes);
+app.use("/api/comment", commentRoutes);
 app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.listen(PORT, () => {
